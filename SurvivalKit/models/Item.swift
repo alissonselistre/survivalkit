@@ -21,7 +21,7 @@ class Item: NSObject, NSCoding{
 		self.beaconID = aDecoder.decodeObject(forKey: "beaconID") as! String
 	}
 	
-	init(name: String, image: UIImage, beacon: String) {
+	init(name: String, image: UIImage?, beacon: String?) {
 		self.name = name
 		self.image = image
 		self.beaconID = beacon

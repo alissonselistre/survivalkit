@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3670329E1FD311920014C98D /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670329D1FD311920014C98D /* Beacon.swift */; };
 		369301191FD31CC1001A18EE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369301181FD31CC1001A18EE /* Item.swift */; };
-		3693011B1FD32848001A18EE /* ItemsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3693011A1FD32848001A18EE /* ItemsList.storyboard */; };
 		3693011D1FD32866001A18EE /* ItemsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3693011C1FD32866001A18EE /* ItemsListViewController.swift */; };
 		3693011F1FD329B6001A18EE /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3693011E1FD329B6001A18EE /* ItemTableViewCell.swift */; };
 		369301211FD33BB9001A18EE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369301201FD33BB9001A18EE /* Notification.swift */; };
@@ -28,7 +27,6 @@
 /* Begin PBXFileReference section */
 		3670329D1FD311920014C98D /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		369301181FD31CC1001A18EE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		3693011A1FD32848001A18EE /* ItemsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemsList.storyboard; sourceTree = "<group>"; };
 		3693011C1FD32866001A18EE /* ItemsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListViewController.swift; sourceTree = "<group>"; };
 		3693011E1FD329B6001A18EE /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		369301201FD33BB9001A18EE /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				36CC88A61FD2EBA60034D45A /* Main.storyboard */,
-				3693011A1FD32848001A18EE /* ItemsList.storyboard */,
 				36CC88AB1FD2EBA60034D45A /* LaunchScreen.storyboard */,
 			);
 			path = interface;
@@ -197,7 +194,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				36CC88AD1FD2EBA60034D45A /* LaunchScreen.storyboard in Resources */,
-				3693011B1FD32848001A18EE /* ItemsList.storyboard in Resources */,
 				36CC88AA1FD2EBA60034D45A /* Assets.xcassets in Resources */,
 				36CC88A81FD2EBA60034D45A /* Main.storyboard in Resources */,
 			);
@@ -359,7 +355,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MX697MNWTH;
+				DEVELOPMENT_TEAM = 5EUEY3M354;
 				INFOPLIST_FILE = SurvivalKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -375,7 +371,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MX697MNWTH;
+				DEVELOPMENT_TEAM = 5EUEY3M354;
 				INFOPLIST_FILE = SurvivalKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
