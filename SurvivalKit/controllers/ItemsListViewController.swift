@@ -14,14 +14,28 @@ class ItemsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var items: [Item] = [
-        Item(name: "Guarda-Chuva", image: nil, beacon: nil),
-        Item(name: "Carteira", image: nil, beacon: nil),
-        Item(name: "Óculos", image: nil, beacon: nil)
+        Item(name: "Guarda-Chuva", image: nil, beacon: "35790"),
+        Item(name: "Carteira", image: nil, beacon: "36034"),
+        Item(name: "Óculos", image: nil, beacon: "8317")
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupRefreshRoutine()
+    }
 
+    // MARK: setup
+
+    private func setupRefreshRoutine() {
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
+            self.refreshUI()
+        }
+    }
+
+    // MARK: updates
+
+    private func refreshUI() {
+        tableView.reloadData()
     }
 }
 
@@ -39,6 +53,8 @@ extension ItemsListViewController: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier, for: indexPath) as? ItemTableViewCell {
             let item = items[indexPath.row]
             cell.setup(withItem: item)
+            cell.isInRange = BeaconDetector.shared.validBeacons.filter { $0.minor == item.beaconID }.first != nil
+            return cell
         }
         return UITableViewCell()
     }
