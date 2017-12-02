@@ -19,6 +19,9 @@ class ItemsListViewController: UIViewController {
 //        Item(name: "Óculos", image: nil, beacon: "8317")
     ]
 
+	var newItem: Item?
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRefreshRoutine()
@@ -56,6 +59,10 @@ class ItemsListViewController: UIViewController {
     @objc internal func checkForMissingItems() {
         //TODO: missing items routine
     }
+	
+	@IBAction func unwindToItemList(segue:UIStoryboardSegue) {
+
+	}
 }
 
 extension ItemsListViewController: UITableViewDataSource {

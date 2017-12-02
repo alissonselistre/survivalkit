@@ -96,7 +96,7 @@
             </objects>
             <point key="canvasLocation" x="817" y="134"/>
         </scene>
-        <!--Add Item View Controller-->
+        <!--Items-->
         <scene sceneID="TaX-Vj-xxL">
             <objects>
                 <viewController id="Tor-bG-Oi1" customClass="AddItemViewController" customModule="SurvivalKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -124,6 +124,7 @@
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addItem:" destination="Tor-bG-Oi1" eventType="touchUpInside" id="G1s-fI-Ipc"/>
+                                    <segue destination="4d5-Qz-tMt" kind="unwind" unwindAction="unwindToItemListWithSegue:" id="iSc-q8-eJC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beacon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIE-0o-Cvd">
@@ -158,6 +159,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lDg-N9-4dk"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Items" id="U4R-oI-H2h"/>
                     <connections>
                         <outlet property="itemImage" destination="m9i-0s-AjJ" id="cnU-y5-60K"/>
                         <outlet property="itemName" destination="HfG-9o-4SD" id="dWR-bd-UPf"/>
@@ -166,6 +168,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1CH-5c-0W2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4d5-Qz-tMt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1800.8" y="868.51574212893559"/>
         </scene>
