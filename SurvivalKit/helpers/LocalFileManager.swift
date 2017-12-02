@@ -11,8 +11,6 @@ import UIKit
 struct LocalFileManager {
 	let userDefaults = UserDefaults.standard
 	
-	private let key = "Beacon"
-	
 	private func objectsToNSData(objects: [Any]) -> [Data]{
 		var objectsDataArray = [Data]()
 		for object in objects{
@@ -21,13 +19,13 @@ struct LocalFileManager {
 		return objectsDataArray
 	}
 	
-	func persistObjects(objects : [Any]){
+	func persistObjects(objects : [Any], key: String){
 		let objectsData = objectsToNSData(objects: objects)
 		self.userDefaults.setValue(objectsData, forKey: key)
 		self.userDefaults.synchronize()
 	}
 	
-	func loadObjects() -> [Any]?{
+	func loadObjects(key: String) -> [Any]?{
 		if let object = userDefaults.value(forKey: key){
 			let objectsData = object as! [Data]
 			var objectsArray = [Any]()

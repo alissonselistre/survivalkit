@@ -12,13 +12,13 @@ class Item: NSObject, NSCoding{
 	func encode(with aCoder: NSCoder) {
 		aCoder.encode(name, forKey: "name")
 		aCoder.encode(image, forKey: "image")
-		aCoder.encode(beaconID, forKey: "beacon")
+		aCoder.encode(beaconID, forKey: "beaconID")
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		self.name = aDecoder.decodeObject(forKey: "name") as! String
 		self.image = aDecoder.decodeObject(forKey: "image") as! UIImage
-		self.beaconID = aDecoder.decodeObject(forKey: "beaconMinor") as! String
+		self.beaconID = aDecoder.decodeObject(forKey: "beaconID") as! String
 	}
 	
 	init(name: String, image: UIImage, beacon: String) {

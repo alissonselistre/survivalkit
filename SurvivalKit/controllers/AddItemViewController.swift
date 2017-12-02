@@ -37,11 +37,11 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 				if let beacon = selectedBeacon{
 					let fileManager = LocalFileManager()
 					var items = [Item]()
-					if let userDefaultsArray = fileManager.loadObjects() {
+					if let userDefaultsArray = fileManager.loadObjects(key: "Item") {
 						items = userDefaultsArray as! [Item]
 					}
 					items.append(Item.init(name: name, image: photo, beacon: (selectedBeacon?.minor)!))
-					fileManager.persistObjects(objects: items)
+					fileManager.persistObjects(objects: items, key: "Item")
 				}
 			}
 		}
