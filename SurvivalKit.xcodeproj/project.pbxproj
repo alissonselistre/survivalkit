@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3670329E1FD311920014C98D /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670329D1FD311920014C98D /* Beacon.swift */; };
+		369301191FD31CC1001A18EE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369301181FD31CC1001A18EE /* Item.swift */; };
 		36BD77A91FD2F4F2003CE845 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD77A81FD2F4F2003CE845 /* Global.swift */; };
 		36BD77AB1FD2F632003CE845 /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD77AA1FD2F632003CE845 /* BeaconTableViewCell.swift */; };
 		36CC88A31FD2EBA60034D45A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC88A21FD2EBA60034D45A /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		3670329D1FD311920014C98D /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		369301181FD31CC1001A18EE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		36BD77A81FD2F4F2003CE845 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		36BD77AA1FD2F632003CE845 /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
 		36CC889F1FD2EBA60034D45A /* SurvivalKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurvivalKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				3670329D1FD311920014C98D /* Beacon.swift */,
+				369301181FD31CC1001A18EE /* Item.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				36CC88A51FD2EBA60034D45A /* BeaconsListViewController.swift in Sources */,
 				36CC88B51FD2EF270034D45A /* BeaconDetector.swift in Sources */,
 				3670329E1FD311920014C98D /* Beacon.swift in Sources */,
+				369301191FD31CC1001A18EE /* Item.swift in Sources */,
 				36BD77AB1FD2F632003CE845 /* BeaconTableViewCell.swift in Sources */,
 				36CC88A31FD2EBA60034D45A /* AppDelegate.swift in Sources */,
 				5B8AB6A31FD31A390058069A /* LocalFileManager.swift in Sources */,
