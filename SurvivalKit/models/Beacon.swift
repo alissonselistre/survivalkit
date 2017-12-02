@@ -12,10 +12,16 @@ import CoreLocation
 struct Beacon {
     var major = ""
     var minor = ""
+    var lastDetection = Date()
 
     init(clBeacon: CLBeacon) {
         major = "\(clBeacon.major)"
         minor = "\(clBeacon.minor)"
+    }
+
+    var isInRange: Bool {
+        let now = Date()
+        return abs(lastDetection.timeIntervalSince(now)) <= 5
     }
 }
 
