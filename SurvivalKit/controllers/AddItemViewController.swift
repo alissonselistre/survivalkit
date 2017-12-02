@@ -21,7 +21,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		selectedBeacon = beacons.first
 		let tap = UITapGestureRecognizer(target: self, action: #selector(self.tap(_:)))
 		tap.delegate = self
 		itemImage.isUserInteractionEnabled = true
@@ -116,8 +116,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 
 extension AddItemViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 	
-	
-	
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1
 	}
@@ -135,8 +133,5 @@ extension AddItemViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		selectedBeacon = beacons[row]
 	}
-	
-	
-	
 	
 }
