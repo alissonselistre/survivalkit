@@ -13,7 +13,11 @@ class BeaconDetector: NSObject {
 
     static let shared = BeaconDetector()
 
+    static let foundTheDoorNotificationIdentifier = "foundTheDoor"
+
     internal var allBeacons: [Beacon] = []
+
+    private var alreadyFoundTheDoor = false
 
     var validBeacons: [Beacon] {
         return allBeacons.filter { $0.isInRange }
@@ -56,6 +60,13 @@ class BeaconDetector: NSObject {
         locationManager.stopMonitoring(for: beaconRegion)
         locationManager.stopRangingBeacons(in: beaconRegion)
     }
+
+    func foundTheDoor() {
+        if !alreadyFoundTheDoor {
+            alreadyFoundTheDoor = true
+            NotificationCenter.default.post(name: Notification.Name(BeaconDetector.foundTheDoorNotificationIdentifier), object: nil, userInfo: nil)
+        }
+    }
 }
 
 extension BeaconDetector: CLLocationManagerDelegate {
@@ -78,6 +89,10 @@ extension BeaconDetector: CLLocationManagerDelegate {
                 self.allBeacons[index] = beacon
             } else {
                 self.allBeacons.append(beacon)
+            }
+
+            if beacon.minor == DOOR_BEACON_ID {
+                foundTheDoor()
             }
         }
     }
