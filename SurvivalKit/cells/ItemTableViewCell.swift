@@ -12,17 +12,14 @@ class ItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var warningSign: UIImageView!
 
     static let identifier = "ItemTableViewCell"
     static let height: CGFloat = 100
 
     var isInRange = false {
         didSet {
-            if isInRange {
-                backgroundColor = UIColor.green.withAlphaComponent(0.2)
-            } else {
-                backgroundColor = UIColor.white
-            }
+            warningSign.isHidden = isInRange
         }
     }
 

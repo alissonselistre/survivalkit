@@ -13,17 +13,17 @@ class ItemsListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var items: [Item] = [
-//        Item(name: "Guarda-Chuva", image: nil, beacon: "35790"),
-//        Item(name: "Carteira", image: nil, beacon: "36034"),
-//        Item(name: "Óculos", image: nil, beacon: "8317")
-    ]
+    @IBOutlet weak var masonImageView: UIImageView!
+    @IBOutlet weak var masonMessageLabel: UILabel!
+
+    var items: [Item] = []
 
 	var newItem: Item?
 	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         setupRefreshRoutine()
         setupObservers()
     }
@@ -37,6 +37,13 @@ class ItemsListViewController: UIViewController {
 	}
 	
     // MARK: setup
+
+    private func setupUI() {
+        masonMessageLabel.layer.masksToBounds = true
+        masonMessageLabel.layer.cornerRadius = masonMessageLabel.frame.width / 4
+        masonMessageLabel.layer.borderWidth = 1
+        masonMessageLabel.layer.borderColor = UIColor.lightGray.cgColor
+    }
 
     private func setupRefreshRoutine() {
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in

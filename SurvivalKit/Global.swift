@@ -6,7 +6,9 @@
 //  Copyright © 2017 Alisson. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+let COLOR_THEME = UIColor(red: 173/255, green: 59/255, blue: 115/2355, alpha: 1.0)
 
 let BEACON_UUID = "B7E833FD-49D1-49AD-8B23-8C9C5D5B67DE"
 let BEACON_PASSWORD = "040814"

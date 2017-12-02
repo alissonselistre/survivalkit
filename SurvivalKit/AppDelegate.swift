@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        globalCustomizations()
         locationManager.delegate = self
         BeaconDetector.shared.startMonitoringBeacons()
         NotificationHelper.requestPermission()
@@ -49,6 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         debugPrint("Received a push notification!")
+    }
+
+    // MARK: global customization
+
+    private func globalCustomizations() {
+        UIApplication.shared.statusBarStyle = .lightContent
+        UINavigationBar.appearance().tintColor = COLOR_THEME
+        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: COLOR_THEME]
     }
 }
 
