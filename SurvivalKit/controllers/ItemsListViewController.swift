@@ -14,9 +14,9 @@ class ItemsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var items: [Item] = [
-        Item(name: "Guarda-Chuva", image: nil, beacon: "35790"),
-        Item(name: "Carteira", image: nil, beacon: "36034"),
-        Item(name: "Óculos", image: nil, beacon: "8317")
+//        Item(name: "Guarda-Chuva", image: nil, beacon: "35790"),
+//        Item(name: "Carteira", image: nil, beacon: "36034"),
+//        Item(name: "Óculos", image: nil, beacon: "8317")
     ]
 
     override func viewDidLoad() {
@@ -24,6 +24,14 @@ class ItemsListViewController: UIViewController {
         setupRefreshRoutine()
     }
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(true)
+		let filemanager = LocalFileManager()
+		if let itemsArray = filemanager.loadObjects(key: "item") as? [Item]{
+			self.items = itemsArray
+		}
+	}
+	
     // MARK: setup
 
     private func setupRefreshRoutine() {
@@ -35,7 +43,7 @@ class ItemsListViewController: UIViewController {
     // MARK: updates
 
     private func refreshUI() {
-        tableView.reloadData()
+		tableView.reloadData()
     }
 }
 
@@ -58,6 +66,19 @@ extension ItemsListViewController: UITableViewDataSource {
         }
         return UITableViewCell()
     }
+	
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			tableView.beginUpdates()
+			items.remove(at: indexPath.row)
+			let fileManager = LocalFileManager()
+			fileManager.persistObjects(objects: items, key: "item")
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+			tableView.endUpdates()
+			tableView.reloadData()
+		}
+	}
+	
 }
 
 extension ItemsListViewController: UITableViewDelegate {
