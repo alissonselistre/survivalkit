@@ -9,9 +9,7 @@
 import UIKit
 
 struct LocalFileManager {
-	private let userDefaults = UserDefaults.standard
-	
-	private let key = "Object"
+	let userDefaults = UserDefaults.standard
 	
 	private func objectsToNSData(objects: [Any]) -> [Data]{
 		var objectsDataArray = [Data]()
@@ -21,18 +19,18 @@ struct LocalFileManager {
 		return objectsDataArray
 	}
 	
-	func persistObjects(objects : [Any]){
+	func persistObjects(objects : [Any], key: String){
 		let objectsData = objectsToNSData(objects: objects)
 		self.userDefaults.setValue(objectsData, forKey: key)
 		self.userDefaults.synchronize()
 	}
 	
-	func loadObjects() -> [Any]?{
+	func loadObjects(key: String) -> [Any]?{
 		if let object = userDefaults.value(forKey: key){
 			let objectsData = object as! [Data]
 			var objectsArray = [Any]()
 			for objectData in objectsData{
-				objectsArray.append(NSKeyedUnarchiver.unarchiveObject(with: objectData) as Any)
+				objectsArray.append(NSKeyedUnarchiver.unarchiveObject(with: objectData) as? Any)
 			}
 			return objectsArray
 		}
