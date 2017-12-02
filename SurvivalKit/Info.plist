@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>abre ai pae</string>
+	<string>Hã?</string>
 	<key>NSCameraUsageDescription</key>
-	<string>abre ai pae</string>
+	<string>Hã?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need to know your location to identity the objects arround you.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

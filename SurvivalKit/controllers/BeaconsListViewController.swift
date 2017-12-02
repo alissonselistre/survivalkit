@@ -27,7 +27,7 @@ class BeaconsListViewController: UIViewController {
     // MARK: setup
 
     private func setupRefreshRoutine() {
-        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
             self.refreshUI()
         }
     }
