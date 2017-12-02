@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3670329E1FD311920014C98D /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670329D1FD311920014C98D /* Beacon.swift */; };
+		36BD77A91FD2F4F2003CE845 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD77A81FD2F4F2003CE845 /* Global.swift */; };
+		36BD77AB1FD2F632003CE845 /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD77AA1FD2F632003CE845 /* BeaconTableViewCell.swift */; };
 		36CC88A31FD2EBA60034D45A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC88A21FD2EBA60034D45A /* AppDelegate.swift */; };
-		36CC88A51FD2EBA60034D45A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC88A41FD2EBA60034D45A /* ViewController.swift */; };
+		36CC88A51FD2EBA60034D45A /* BeaconsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC88A41FD2EBA60034D45A /* BeaconsListViewController.swift */; };
 		36CC88A81FD2EBA60034D45A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CC88A61FD2EBA60034D45A /* Main.storyboard */; };
 		36CC88AA1FD2EBA60034D45A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CC88A91FD2EBA60034D45A /* Assets.xcassets */; };
 		36CC88AD1FD2EBA60034D45A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CC88AB1FD2EBA60034D45A /* LaunchScreen.storyboard */; };
+		36CC88B51FD2EF270034D45A /* BeaconDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC88B41FD2EF270034D45A /* BeaconDetector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3670329D1FD311920014C98D /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		36BD77A81FD2F4F2003CE845 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		36BD77AA1FD2F632003CE845 /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
 		36CC889F1FD2EBA60034D45A /* SurvivalKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurvivalKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CC88A21FD2EBA60034D45A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		36CC88A41FD2EBA60034D45A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		36CC88A41FD2EBA60034D45A /* BeaconsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconsListViewController.swift; sourceTree = "<group>"; };
 		36CC88A71FD2EBA60034D45A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36CC88A91FD2EBA60034D45A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36CC88AC1FD2EBA60034D45A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36CC88AE1FD2EBA60034D45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36CC88B41FD2EF270034D45A /* BeaconDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36BD77AC1FD307BC003CE845 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				36CC88A41FD2EBA60034D45A /* BeaconsListViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		36BD77AE1FD30B1D003CE845 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				36BD77AA1FD2F632003CE845 /* BeaconTableViewCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		36BD77AF1FD30B38003CE845 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				36CC88B41FD2EF270034D45A /* BeaconDetector.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		36BD77B01FD30B53003CE845 /* interface */ = {
+			isa = PBXGroup;
+			children = (
+				36CC88A61FD2EBA60034D45A /* Main.storyboard */,
+				36CC88AB1FD2EBA60034D45A /* LaunchScreen.storyboard */,
+			);
+			path = interface;
+			sourceTree = "<group>";
+		};
+		36BD77B11FD30BBC003CE845 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				3670329D1FD311920014C98D /* Beacon.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		36CC88961FD2EBA60034D45A = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +103,15 @@
 		36CC88A11FD2EBA60034D45A /* SurvivalKit */ = {
 			isa = PBXGroup;
 			children = (
-				36CC88A21FD2EBA60034D45A /* AppDelegate.swift */,
-				36CC88A41FD2EBA60034D45A /* ViewController.swift */,
-				36CC88A61FD2EBA60034D45A /* Main.storyboard */,
+				36BD77B01FD30B53003CE845 /* interface */,
+				36BD77AC1FD307BC003CE845 /* controllers */,
+				36BD77AE1FD30B1D003CE845 /* cells */,
+				36BD77AF1FD30B38003CE845 /* helpers */,
+				36BD77B11FD30BBC003CE845 /* models */,
 				36CC88A91FD2EBA60034D45A /* Assets.xcassets */,
-				36CC88AB1FD2EBA60034D45A /* LaunchScreen.storyboard */,
 				36CC88AE1FD2EBA60034D45A /* Info.plist */,
+				36CC88A21FD2EBA60034D45A /* AppDelegate.swift */,
+				36BD77A81FD2F4F2003CE845 /* Global.swift */,
 			);
 			path = SurvivalKit;
 			sourceTree = "<group>";
@@ -136,7 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36CC88A51FD2EBA60034D45A /* ViewController.swift in Sources */,
+				36BD77A91FD2F4F2003CE845 /* Global.swift in Sources */,
+				36CC88A51FD2EBA60034D45A /* BeaconsListViewController.swift in Sources */,
+				36CC88B51FD2EF270034D45A /* BeaconDetector.swift in Sources */,
+				3670329E1FD311920014C98D /* Beacon.swift in Sources */,
+				36BD77AB1FD2F632003CE845 /* BeaconTableViewCell.swift in Sources */,
 				36CC88A31FD2EBA60034D45A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
