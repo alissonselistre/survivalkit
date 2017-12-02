@@ -17,8 +17,16 @@ class Item: NSObject, NSCoding{
 	
 	required init?(coder aDecoder: NSCoder) {
 		self.name = aDecoder.decodeObject(forKey: "name") as! String
-		self.image = aDecoder.decodeObject(forKey: "image") as! UIImage
-		self.beaconID = aDecoder.decodeObject(forKey: "beaconID") as! String
+		if let image =  aDecoder.decodeObject(forKey: "image") as? UIImage{
+			self.image = image
+		}else{
+			return nil
+		}
+		if let beaconID = aDecoder.decodeObject(forKey: "beaconID") as? String{
+			self.beaconID = beaconID
+		}else{
+			return nil
+		}
 	}
 	
 	init(name: String, image: UIImage?, beacon: String?) {

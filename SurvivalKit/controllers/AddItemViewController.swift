@@ -15,8 +15,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 	@IBOutlet weak var viewTest: UIView!
 	@IBOutlet weak var pickerView: UIPickerView!
 	
-	var beacons : [Beacon] = []
-	var selectedBeacon : Beacon?
+	var beacons : [String] = ["35790", "36034"]
+	var selectedBeacon : String?
 	let picker = UIImagePickerController()
 	
 	override func viewDidLoad() {
@@ -37,11 +37,11 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 				if let beacon = selectedBeacon{
 					let fileManager = LocalFileManager()
 					var items = [Item]()
-					if let userDefaultsArray = fileManager.loadObjects(key: "Item") {
-						items = userDefaultsArray as! [Item]
+					if let userDefaultsArray = fileManager.loadObjects(key: "item") as? [Item] {
+						items = userDefaultsArray
 					}
-					items.append(Item.init(name: name, image: photo, beacon: (selectedBeacon?.minor)!))
-					fileManager.persistObjects(objects: items, key: "Item")
+					items.append(Item.init(name: name, image: photo, beacon: (selectedBeacon)!))
+					fileManager.persistObjects(objects: items, key: "item")
 				}
 			}
 		}
@@ -128,7 +128,7 @@ extension AddItemViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 	
 	func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
 		let labelText = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 30))
-		labelText.text = beacons[row].minor
+		labelText.text = beacons[row]
 		return labelText
 	}
 	
