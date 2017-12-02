@@ -22,6 +22,7 @@ class ItemsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRefreshRoutine()
+        setupObservers()
     }
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -40,10 +41,20 @@ class ItemsListViewController: UIViewController {
         }
     }
 
+    private func setupObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(checkForMissingItems), name: Notification.Name(BeaconDetector.foundTheDoorNotificationIdentifier), object: nil)
+    }
+
     // MARK: updates
 
     private func refreshUI() {
 		tableView.reloadData()
+    }
+
+    // MARK: helpers
+
+    @objc internal func checkForMissingItems() {
+        //TODO: missing items routine
     }
 }
 

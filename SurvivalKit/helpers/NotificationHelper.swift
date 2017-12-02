@@ -1,5 +1,5 @@
 //
-//  Notification.swift
+//  NotificationHelper.swift
 //  SurvivalKit
 //
 //  Created by Alisson L. Selistre on 02/12/17.
@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-struct Notification {
+struct NotificationHelper {
     static func requestPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in }
     }
