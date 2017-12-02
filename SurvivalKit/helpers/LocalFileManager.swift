@@ -9,9 +9,9 @@
 import UIKit
 
 struct LocalFileManager {
-	private let userDefaults = UserDefaults.standard
+	let userDefaults = UserDefaults.standard
 	
-	private let key = "Object"
+	private let key = "Beacon"
 	
 	private func objectsToNSData(objects: [Any]) -> [Data]{
 		var objectsDataArray = [Data]()
@@ -32,7 +32,7 @@ struct LocalFileManager {
 			let objectsData = object as! [Data]
 			var objectsArray = [Any]()
 			for objectData in objectsData{
-				objectsArray.append(NSKeyedUnarchiver.unarchiveObject(with: objectData) as Any)
+				objectsArray.append(NSKeyedUnarchiver.unarchiveObject(with: objectData) as? Any)
 			}
 			return objectsArray
 		}
