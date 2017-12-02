@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3670329E1FD311920014C98D /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670329D1FD311920014C98D /* Beacon.swift */; };
 		369301191FD31CC1001A18EE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369301181FD31CC1001A18EE /* Item.swift */; };
+		3693011D1FD32866001A18EE /* ItemsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3693011C1FD32866001A18EE /* ItemsListViewController.swift */; };
+		3693011F1FD329B6001A18EE /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3693011E1FD329B6001A18EE /* ItemTableViewCell.swift */; };
+		369301211FD33BB9001A18EE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369301201FD33BB9001A18EE /* Notification.swift */; };
 		36BD77A91FD2F4F2003CE845 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD77A81FD2F4F2003CE845 /* Global.swift */; };
 		36BD77AB1FD2F632003CE845 /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD77AA1FD2F632003CE845 /* BeaconTableViewCell.swift */; };
 		36CC88A31FD2EBA60034D45A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC88A21FD2EBA60034D45A /* AppDelegate.swift */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		3670329D1FD311920014C98D /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		369301181FD31CC1001A18EE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		3693011C1FD32866001A18EE /* ItemsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListViewController.swift; sourceTree = "<group>"; };
+		3693011E1FD329B6001A18EE /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		369301201FD33BB9001A18EE /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		36BD77A81FD2F4F2003CE845 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		36BD77AA1FD2F632003CE845 /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
 		36CC889F1FD2EBA60034D45A /* SurvivalKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurvivalKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +60,7 @@
 			children = (
 				5B8AB6A61FD31FF90058069A /* AddItemViewController.swift */,
 				36CC88A41FD2EBA60034D45A /* BeaconsListViewController.swift */,
+				3693011C1FD32866001A18EE /* ItemsListViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -62,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				36BD77AA1FD2F632003CE845 /* BeaconTableViewCell.swift */,
+				3693011E1FD329B6001A18EE /* ItemTableViewCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -71,6 +79,7 @@
 			children = (
 				5B8AB6A21FD31A390058069A /* LocalFileManager.swift */,
 				36CC88B41FD2EF270034D45A /* BeaconDetector.swift */,
+				369301201FD33BB9001A18EE /* Notification.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -199,11 +208,14 @@
 			files = (
 				36BD77A91FD2F4F2003CE845 /* Global.swift in Sources */,
 				36CC88A51FD2EBA60034D45A /* BeaconsListViewController.swift in Sources */,
+				3693011F1FD329B6001A18EE /* ItemTableViewCell.swift in Sources */,
 				36CC88B51FD2EF270034D45A /* BeaconDetector.swift in Sources */,
 				3670329E1FD311920014C98D /* Beacon.swift in Sources */,
 				369301191FD31CC1001A18EE /* Item.swift in Sources */,
 				5B8AB6A71FD31FFA0058069A /* AddItemViewController.swift in Sources */,
+				3693011D1FD32866001A18EE /* ItemsListViewController.swift in Sources */,
 				36BD77AB1FD2F632003CE845 /* BeaconTableViewCell.swift in Sources */,
+				369301211FD33BB9001A18EE /* Notification.swift in Sources */,
 				36CC88A31FD2EBA60034D45A /* AppDelegate.swift in Sources */,
 				5B8AB6A31FD31A390058069A /* LocalFileManager.swift in Sources */,
 			);
@@ -343,7 +355,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MX697MNWTH;
+				DEVELOPMENT_TEAM = 5EUEY3M354;
 				INFOPLIST_FILE = SurvivalKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -359,7 +371,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MX697MNWTH;
+				DEVELOPMENT_TEAM = 5EUEY3M354;
 				INFOPLIST_FILE = SurvivalKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
