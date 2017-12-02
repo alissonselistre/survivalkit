@@ -28,6 +28,12 @@
 	<string>We need to know your location to identity the objects arround you.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Hã?</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>location</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

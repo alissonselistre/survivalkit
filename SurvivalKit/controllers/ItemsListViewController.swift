@@ -57,7 +57,7 @@ class ItemsListViewController: UIViewController {
     // MARK: helpers
 
     @objc internal func checkForMissingItems() {
-        //TODO: missing items routine
+        NotificationHelper.generateNotification()
     }
 	
 	@IBAction func unwindToItemList(segue:UIStoryboardSegue) {

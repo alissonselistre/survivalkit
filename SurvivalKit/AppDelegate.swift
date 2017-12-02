@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        locationManager.delegate = self
         BeaconDetector.shared.startMonitoringBeacons()
+        NotificationHelper.requestPermission()
 
         return true
     }
@@ -43,6 +47,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        debugPrint("Received a push notification!")
+    }
+}
 
+extension AppDelegate: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        BeaconDetector.shared.startMonitoringBeacons()
+    }
 }
 
