@@ -13,50 +13,29 @@ class BeaconsListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    internal var beacons: [Beacon] = [] {
-        didSet {
-            tableView.reloadData()
-        }
+    internal var beacons: [Beacon] {
+        return BeaconDetector.shared.validBeacons
     }
-
-    private let locationManager = CLLocationManager()
-    private var beaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: BEACON_UUID)!, identifier: BEACON_REGION_IDENTIFIER)
 
     // MARK: view methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLocationManager()
+        setupRefreshRoutine()
     }
 
     // MARK: setup
 
-    private func setupLocationManager() {
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-
-        beaconRegion.notifyEntryStateOnDisplay = true
-        beaconRegion.notifyOnEntry = true
-        beaconRegion.notifyOnExit = true
-
-        if (!CLLocationManager.isRangingAvailable()) {
-            // TODO: message to location unavailable
-            return
+    private func setupRefreshRoutine() {
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+            self.refreshUI()
         }
-
-        startMonitoringBeacons()
     }
 
-    // MARK: helpers
+    // MARK: updates
 
-    private func startMonitoringBeacons() {
-        locationManager.startMonitoring(for: beaconRegion)
-        locationManager.startRangingBeacons(in: beaconRegion)
-    }
-
-    private func stopMonitoringBeacons() {
-        locationManager.stopMonitoring(for: beaconRegion)
-        locationManager.stopRangingBeacons(in: beaconRegion)
+    private func refreshUI() {
+        tableView.reloadData()
     }
 }
 
@@ -82,30 +61,5 @@ extension BeaconsListViewController: UITableViewDataSource {
 extension BeaconsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return BeaconTableViewCell.height
-    }
-}
-
-extension BeaconsListViewController: CLLocationManagerDelegate {
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        debugPrint("Failed monitoring region: \(error.localizedDescription)")
-    }
-
-    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
-        debugPrint("Location manager failed: \(error.localizedDescription)")
-    }
-
-    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        debugPrint("Beacons found: \(beacons.count)")
-
-        for clBeacon in beacons {
-
-            let beacon = Beacon(clBeacon: clBeacon)
-            if let index = self.beacons.index(of: beacon) {
-                self.beacons[index] = beacon
-            } else {
-                self.beacons.append(beacon)
-            }
-        }
     }
 }
