@@ -14,6 +14,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 	@IBOutlet weak var itemImage: UIImageView!
 	@IBOutlet weak var viewTest: UIView!
 	@IBOutlet weak var pickerView: UIPickerView!
+	@IBOutlet weak var addButon: UIButton!
+	@IBOutlet weak var masonMessage: UILabel!
 	
 	var beacons : [String] = ["35790", "36034"]
 	var selectedBeacon : String?
@@ -23,12 +25,23 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 		super.viewDidLoad()
 		selectedBeacon = beacons.first
 		let tap = UITapGestureRecognizer(target: self, action: #selector(self.tap(_:)))
+		let tap2 = UITapGestureRecognizer(target: self, action: #selector(self.tap2(_:)))
 		tap.delegate = self
+		tap2.delegate = self
 		itemImage.isUserInteractionEnabled = true
 		itemImage.addGestureRecognizer(tap)
 		viewTest.addGestureRecognizer(tap)
+		self.view.addGestureRecognizer(tap2)
 		picker.delegate = self
 		pickerView.delegate = self
+		addButon.layer.masksToBounds = true
+		addButon.layer.cornerRadius = itemImage.frame.size.width / 5
+		itemImage.layer.masksToBounds = true
+		itemImage.layer.cornerRadius = itemImage.frame.size.width / 2
+		masonMessage.layer.masksToBounds = true
+		masonMessage.layer.cornerRadius = masonMessage.frame.width / 20
+		masonMessage.layer.borderWidth = 1
+		masonMessage.layer.borderColor = UIColor.lightGray.cgColor
 	}
 	
 	@IBAction func addItem(_ sender: Any) {
@@ -47,8 +60,13 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 		}
 	}
 	
-	@objc func tap(_ gestureRecognizer: UITapGestureRecognizer) {
+	@objc func tap2(_ gestureRecognizer: UITapGestureRecognizer) {
 		
+		self.view.endEditing(true)
+		
+	}
+	
+	@objc func tap(_ gestureRecognizer: UITapGestureRecognizer) {
 		let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
 		
 		// 2
@@ -82,6 +100,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 		
 		// 5
 		self.present(optionMenu, animated: true, completion: nil)
+		
 	}
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
