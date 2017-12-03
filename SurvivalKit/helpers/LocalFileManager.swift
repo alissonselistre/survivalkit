@@ -19,14 +19,12 @@ struct LocalFileManager {
 		return objectsDataArray
 	}
 	
-	func persistObjects(objects : [Any], key: String){
-		let objectsData = objectsToNSData(objects: objects)
-		for object in userDefaults.array(forKey: key)!{
-		self.userDefaults.removeObject(forKey: key)
-		}
-		self.userDefaults.setValue(objectsData, forKey: key)
-		self.userDefaults.synchronize()
-	}
+    func persistObjects(objects : [Any], key: String){
+        let objectsData = objectsToNSData(objects: objects)
+        self.userDefaults.removeObject(forKey: key)
+        self.userDefaults.setValue(objectsData, forKey: key)
+        self.userDefaults.synchronize()
+    }
 	
 	func loadObjects(key: String) -> [Any]?{
 		if let object = userDefaults.value(forKey: key){

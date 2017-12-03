@@ -23,6 +23,14 @@ class BeaconDetector: NSObject {
         return allBeacons.filter { $0.isInRange }
     }
 
+    var invalidBeacons: [Beacon] {
+        return allBeacons.filter { !$0.isInRange }
+    }
+
+    var hasLostItem: Bool {
+        return invalidBeacons.count > 0
+    }
+
     private let locationManager = CLLocationManager()
     private var beaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: BEACON_UUID)!, identifier: BEACON_REGION_IDENTIFIER)
 

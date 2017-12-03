@@ -271,7 +271,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PP5-7G-k00">
                                 <rect key="frame" x="20" y="484" width="335" height="163"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monsterSplash" translatesAutoresizingMaskIntoConstraints="NO" id="vtS-6W-72W">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monster1" translatesAutoresizingMaskIntoConstraints="NO" id="vtS-6W-72W">
                                         <rect key="frame" x="167.5" y="0.0" width="167.5" height="163"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPC-yi-Yxq">
@@ -326,6 +326,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="masonContainer" destination="PP5-7G-k00" id="Nmc-Ea-xmE"/>
                         <outlet property="masonImageView" destination="vtS-6W-72W" id="wCO-oS-uqA"/>
                         <outlet property="masonMessageLabel" destination="vMU-VU-qQn" id="Gil-ew-8g0"/>
                         <outlet property="tableView" destination="uQR-JQ-jhJ" id="Eoq-7Z-fZB"/>
@@ -338,7 +339,7 @@
     </scenes>
     <resources>
         <image name="beacon" width="300" height="300"/>
-        <image name="monsterSplash" width="335" height="349"/>
+        <image name="monster1" width="186" height="193"/>
         <image name="warning" width="42" height="33"/>
     </resources>
 </document>

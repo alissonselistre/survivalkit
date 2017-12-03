@@ -9,23 +9,34 @@
 import UIKit
 import CoreLocation
 
+enum MasonState {
+    case emptyList
+    case everythingIsFine
+    case lostItem
+}
+
 class ItemsListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var masonContainer: UIView!
     @IBOutlet weak var masonImageView: UIImageView!
     @IBOutlet weak var masonMessageLabel: UILabel!
 
     var items: [Item] = []
 
 	var newItem: Item?
-	
+
+    var masonState = MasonState.emptyList
+
+    var hasLostItem = false
 	
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupRefreshRoutine()
         setupObservers()
+        refreshUI()
     }
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -59,6 +70,22 @@ class ItemsListViewController: UIViewController {
 
     private func refreshUI() {
 		tableView.reloadData()
+
+        updateMasonState()
+
+        UIView.transition(with: masonContainer, duration: 1, options: .transitionCrossDissolve, animations: {
+            switch self.masonState {
+            case .emptyList:
+                self.masonImageView.image = #imageLiteral(resourceName: "monster1")
+                self.masonMessageLabel.text = "Bora cadastrar\n uns bagulho\n pra nois cuidá"
+            case .everythingIsFine:
+                self.masonImageView.image = #imageLiteral(resourceName: "monster1")
+                self.masonMessageLabel.text = "Por hora,\ntudo nos\nconforme"
+            case .lostItem:
+                self.masonImageView.image = #imageLiteral(resourceName: "monster2")
+                self.masonMessageLabel.text = "O meo! Tu tá esquecendo\num bagulho!"
+            }
+        }, completion: nil)
     }
 
     // MARK: helpers
@@ -66,7 +93,19 @@ class ItemsListViewController: UIViewController {
     @objc internal func checkForMissingItems() {
         NotificationHelper.generateNotification()
     }
-	
+
+    func updateMasonState() {
+        if items.count == 0 {
+            masonState = .emptyList
+        } else if BeaconDetector.shared.hasLostItem {
+            masonState = .lostItem
+        } else {
+            masonState = .everythingIsFine
+        }
+    }
+
+    // MARK: actions
+
 	@IBAction func unwindToItemList(segue:UIStoryboardSegue) {
 
 	}
@@ -103,7 +142,6 @@ extension ItemsListViewController: UITableViewDataSource {
 			tableView.reloadData()
 		}
 	}
-	
 }
 
 extension ItemsListViewController: UITableViewDelegate {
