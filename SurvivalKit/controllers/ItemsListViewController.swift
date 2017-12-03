@@ -66,8 +66,7 @@ class ItemsListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(checkForMissingItems), name: Notification.Name(BeaconDetector.foundTheDoorNotificationIdentifier), object: nil)
     }
 
-    // MARK: updates
-
+    // MARK: update
     private func refreshUI() {
 		tableView.reloadData()
 
@@ -95,10 +94,12 @@ class ItemsListViewController: UIViewController {
     }
 
     func updateMasonState() {
-        if items.count == 0 {
+		if items.count == 0 {
             masonState = .emptyList
         } else if BeaconDetector.shared.hasLostItem {
-            masonState = .lostItem
+			
+			
+			masonState = .lostItem
         } else {
             masonState = .everythingIsFine
         }
@@ -143,6 +144,7 @@ extension ItemsListViewController: UITableViewDataSource {
 		}
 	}
 }
+
 
 extension ItemsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
